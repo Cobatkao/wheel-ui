@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Cobatkao/Co2y-UI/issues"
   },
-  "homepage": "https://github.com/Cobatkao/Co2y-UI#readme"
+  "homepage": "https://github.com/Cobatkao/Co2y-UI#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
