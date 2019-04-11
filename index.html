@@ -7,51 +7,6 @@
 		  maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Co2y.UI</title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		#app {
-			margin: 20px;
-		}
-
-		/*样式变量，方便用户客制化*/
-		:root {
-			--button-height: 32px;
-			--font-size: 14px;
-			--button-bg: white;
-			--button-active-bg: #eee;
-			--border-radius: 4px;
-			--color: #333;
-			--border-color: #999;
-			--border-color-hover: #666;
-		}
-
-		body {
-			font-size: var(--font-size);
-		}
-
-		.c-button {
-			outline: none;
-			font-size: var(--font-size);
-			height: var(--button-height);
-			padding: 0 1em;
-			border-radius: var(--border-radius);
-			border: 1px solid var(--border-color);
-			background: var(--button-bg);
-		}
-
-		.c-button:hover {
-			border-color: var(--border-color-hover);
-		}
-
-		.c-button:active {
-			background-color: var(--button-active-bg);
-		}
-	</style>
 </head>
 
 <body>
@@ -59,16 +14,7 @@
 		<c-button></c-button>
 		{{ msg }}
 	</div>
-	<script src="./node_modules/vue/dist/vue.min.js"></script>
-	<script src="./Button.js"></script>
-	<script>
-		new Vue({
-			el: "#app",
-			data: {
-				msg: "Hello World!"
-			}
-		})
-	</script>
+	<script type="text/javascript" src="./src/app.js"></script>
 </body>
 
 </html>
