@@ -1,8 +1,6 @@
 <template lang="html">
     <button class="c-button" :class="{[`icon-${iconPosition}`]: true}">
-      <svg v-if="icon" class="icon">
-				<use :xlink:href="`#icon-${icon}`"></use>
-			</svg>
+      <c-icon v-if="icon" :name="icon"></c-icon>
       <div class="content">
         <slot></slot>
       </div>
@@ -18,14 +16,14 @@ export default {
       type: String,
       default: "left",
       validator(val) {
-        return val === "left" && val === "right";
+        return val === "left" || val === "right";
       }
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .c-button {
     outline: none;
     font-size: var(--font-size);
