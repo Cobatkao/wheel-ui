@@ -4,3 +4,5 @@ dist/
 build
 .cache/
 ·
+/dist/
+/.cache/

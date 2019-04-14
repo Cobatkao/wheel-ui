@@ -1,22 +1,32 @@
 <template lang="html">
-    <button class="c-button">
-      <svg class="icon">
-        <use xlink:href="#isetting"></use>
-      </svg>
-      默认按钮
+    <button class="c-button" :class="{[`icon-${iconPosition}`]: true}">
+      <svg v-if="icon" class="icon">
+				<use :xlink:href="`#icon-${icon}`"></use>
+			</svg>
+      <div class="content">
+        <slot></slot>
+      </div>
     </button>
 </template>
 
 <script>
-    import '../common.scss';
-    export default {
-
+import '../common.scss';
+export default {
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: "left",
+      validator(val) {
+        return val === "left" && val === "right";
+      }
     }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-
-  .c-button {
+.c-button {
     outline: none;
     font-size: var(--font-size);
     height: var(--button-height);
@@ -24,17 +34,42 @@
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     background: var(--button-bg);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
 
     &:hover {
-      border-color: var(--border-color-hover);
+        border-color: var(--border-color-hover);
     }
 
     &:active {
-      background-color: var(--button-active-bg);
+        background-color: var(--button-active-bg);
     }
 
     &:focus {
-      outline: none;
+        outline: none;
     }
-  }
+    // 默认图标为左
+    &.icon-left {
+      > .icon {
+        order: 1;
+        margin-right: .1em;
+      }
+      > .content {
+        order: 2;
+      }
+    }
+    // 传值后图标为右
+    &.icon-right {
+      > .icon {
+        order: 2;
+        margin-left: .1em;
+        margin-right: 0;
+      }
+      > .content {
+        order: 1;
+      }
+    }
+}
 </style>
