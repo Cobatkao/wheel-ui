@@ -10,9 +10,11 @@
 
 <body>
 	<div id="app">
-		<c-button :loading="isLoading" @click="isLoading = !isLoading">按钮</c-button>
+		<c-button :loading="isLoading" @click="isLoading = !isLoading">加载</c-button>
 		<c-button icon="setting" :loading="true">按钮</c-button>
 		<c-button icon="setting" icon-position="right">按钮</c-button>
+		<c-button icon="download">下载</c-button>
+        单独使用icon
         <c-icon name="heart"></c-icon>
         <br><br><br>
         <c-button-group>

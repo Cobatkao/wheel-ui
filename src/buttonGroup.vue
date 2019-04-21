@@ -25,8 +25,11 @@
         font-size: 0;
 
         > .c-button {
-            margin: -1px;
             border-radius: 0;
+
+            &:not(:first-child) {
+                margin: -1px;
+            }
 
             &:first-child {
                 border-top-left-radius: var(--border-radius);
