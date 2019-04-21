@@ -32,7 +32,7 @@ const expect = chai.expect;
   let href = useNode.getAttribute('xlink:href');
   expect(href).to.eq('#icon-settings');
   vm.$el.remove();
-  vm.$destroy;
+  vm.$destroy();
 }
 
 {
@@ -48,7 +48,7 @@ const expect = chai.expect;
   let href = useNode.getAttribute('xlink:href');
   expect(href).to.eq('#icon-loading');
   vm.$el.remove();
-  vm.$destroy;
+  vm.$destroy();
 }
 
 {
@@ -65,7 +65,7 @@ const expect = chai.expect;
   let {order} = window.getComputedStyle(svg);
   expect(order).to.eq('1');
   vm.$el.remove();
-  vm.$destroy;
+  vm.$destroy();
 }
 
 {
@@ -83,7 +83,7 @@ const expect = chai.expect;
   let {order} = window.getComputedStyle(svg);
   expect(order).to.eq('2');
   vm.$el.remove();
-  vm.$destroy;
+  vm.$destroy();
 }
 
 {
