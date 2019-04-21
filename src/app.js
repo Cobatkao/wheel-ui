@@ -7,4 +7,7 @@ Vue.component('c-icon', Icon);
 
 new Vue({
 	el: "#app",
+  data: {
+	  isLoading: false
+  }
 });

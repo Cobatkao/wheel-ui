@@ -10,13 +10,13 @@
 
 <body>
 	<div id="app">
-		<c-button icon="setting">按钮</c-button>
-		<c-button icon="setting">按钮</c-button>
+		<c-button :loading="isLoading" @click="isLoading = !isLoading">按钮</c-button>
+		<c-button icon="setting" :loading="true">按钮</c-button>
 		<c-button icon="setting" icon-position="right">按钮</c-button>
         <c-icon name="heart"></c-icon>
 	</div>
 	<script type="text/javascript" src="./src/app.js"></script>
-	<script type="text/javascript" src="//at.alicdn.com/t/font_1141243_coxifzs44jg.js"></script>
+	<script type="text/javascript" src="//at.alicdn.com/t/font_1141243_5prc5cf74yj.js"></script>
 </body>
 
 </html>
