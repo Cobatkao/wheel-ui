@@ -13,8 +13,10 @@
 
 <style lang="scss" scoped>
     .c-icon {
-        width: 1em;
-        height: 1em;
+        display: inline-block;
+        vertical-align: middle;
+        width: 1.3em;
+        height: 1.3em;
         color: #333;
     }
 </style>
