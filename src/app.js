@@ -2,7 +2,10 @@ import Vue from 'vue';
 import Button from './button';
 import Icon from './icon';
 import buttonGroup from './buttonGroup';
-import chai from 'chai'
+import chai from 'chai';
+import spies from 'chai-spies';
+
+chai.use(spies);
 
 Vue.component('c-button', Button);
 Vue.component('c-icon', Icon);
@@ -83,4 +86,23 @@ const expect = chai.expect;
   vm.$destroy;
 }
 
+{
+  const Constructor = Vue.extend(Button);
+  const vm = new Constructor({
+    propsData: {
+      icon: 'settings'
+    }
+  });
+  vm.$mount();
+  // mock函数
+  let spy = chai.spy(function () {
+  // 暂时空函数
+  });
+
+  vm.$on('click', spy);
+  let button = vm.$el;
+  button.click();
+  // 期待间谍函数被调用
+  expect(spy).to.have.been.called();
+}
 
