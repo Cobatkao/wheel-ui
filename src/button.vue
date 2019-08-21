@@ -1,8 +1,9 @@
 <template lang="html">
-    <button class="c-button" :class="{[`icon-${iconPosition}`]: true}"
-        @click="$emit('click')">
-        <c-icon v-if="icon && !loading" class="icon" :name="icon"></c-icon>
-        <c-icon class="loading" v-if="loading" name="loading"></c-icon>
+    <button class="c-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+        <!--Loading和Icon不能同时出现-->
+        <c-icon v-if="icon && !loading" class="icon" :name="`${icon}`" :iconColor="`${color}`"></c-icon>
+        <!--Loading的icon-->
+        <c-icon class="loading" :class="{[`icon-${iconPosition}`]: true}" v-if="loading" name="loading"></c-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -15,13 +16,17 @@
   export default {
     props: {
       icon: {},
+      color: {
+        type: String,
+        default: "#333"
+      },
       loading: {
         type: Boolean,
         default: false
       },
       iconPosition: {
         type: String,
-        default: "left",
+        default: "left", // 接收默认值
         validator(val) {
           return val === "left" || val === "right";
         }
@@ -85,8 +90,20 @@
             }
         }
 
-        > .loading {
+        > .icon-left, .icon-right {
             animation: spin 2s linear infinite;
+        }
+
+        > .icon-left.loading {
+            order: 1;
+            margin-right: .1em;
+            margin-left: 0;
+        }
+
+        > .icon-right.loading {
+            order: 2;
+            margin-left: .1em;
+            margin-right: 0;
         }
     }
 </style>

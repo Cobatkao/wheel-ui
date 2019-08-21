@@ -5,26 +5,52 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,
 		  maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Co2y.UI</title>
+	<title>Wheels</title>
+	<style>
+		.box {
+			margin: 30px;
+		}
+
+		.box > * {
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+	</style>
 </head>
 
 <body>
 	<div id="app">
-		<c-button :loading="isLoading" @click="isLoading = !isLoading">加载</c-button>
-		<c-button icon="setting" :loading="true">按钮</c-button>
-		<c-button icon="setting" icon-position="right">按钮</c-button>
-		<c-button icon="download">下载</c-button>
-        单独使用icon
-        <c-icon name="heart"></c-icon>
-        <br><br><br>
-        <c-button-group>
-            <c-button icon="left">上一页</c-button>
-            <c-button>更多</c-button>
-            <c-button icon="right" icon-position="right">下一页</c-button>
-        </c-button-group>
+		<div class="box">
+			<c-button :loading="isLoading" @click="isLoading = !isLoading">加载</c-button>
+			<c-button icon-position="left" :loading="true">按钮</c-button>
+			<c-button icon-position="right" :loading="true">按钮</c-button>
+			<c-button icon="setting" icon-position="left">按钮</c-button>
+			<c-button icon="setting" icon-position="right">按钮</c-button>
+			<c-button icon="download">下载</c-button>
+		</div>
+
+		<div class="box">
+			<c-icon name="heart" icon-color="pink"></c-icon>
+		</div>
+
+        <div class="box">
+			<c-button-group>
+				<c-button icon="left">上一页</c-button>
+				<c-button>更多</c-button>
+				<c-button icon="right" icon-position="right">下一页</c-button>
+			</c-button-group>
+		</div>
+
+		<div class="box">
+			<c-input value="你好"></c-input>
+			<c-input :readonly="true" value="readonly"></c-input>
+			<c-input :disabled="true" value="disabled"></c-input>
+			<c-input error="姓名不能少于两个字哦" icon="error" value="error error-icon"></c-input>
+			<c-input error="姓名不能少于两个字哦" value="error default-icon"></c-input>
+		</div>
 	</div>
 	<script type="text/javascript" src="./src/app.js"></script>
-	<script type="text/javascript" src="//at.alicdn.com/t/font_1141243_5prc5cf74yj.js"></script>
+	<script type="text/javascript" src="//at.alicdn.com/t/font_1141243_gztuee8vi1a.js"></script>
 </body>
 
 </html>

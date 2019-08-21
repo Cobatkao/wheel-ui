@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	box-sizing: border-box; // 使用本组件库需要使用border-box
 }
 
 #app {
@@ -11,7 +11,8 @@
 body {
 	font-size: var(--font-size);
 }
-/*样式变量，方便用户客制化*/
+/*CSS变量，方便用户客制化*/
+/*使用方法 var(--button-height)*/
 :root {
 	--button-height: 32px;
 	--font-size: 14px;

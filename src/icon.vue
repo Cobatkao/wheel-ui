@@ -1,13 +1,13 @@
 <template>
     <svg class="c-icon">
-        <use :xlink:href="`#icon-${name}`"></use>
+        <use :xlink:href="`#icon-${name}`" :fill="`${iconColor}`"></use>
     </svg>
 </template>
 
 <script>
   export default {
     name: "icon",
-    props: ['name']
+    props: ['name', 'iconColor']
   }
 </script>
 
