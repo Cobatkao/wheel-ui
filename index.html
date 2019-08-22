@@ -47,6 +47,7 @@
 			<c-input :disabled="true" value="disabled"></c-input>
 			<c-input error="姓名不能少于两个字哦" icon="error" value="error error-icon"></c-input>
 			<c-input error="姓名不能少于两个字哦" value="error default-icon"></c-input>
+			<c-input error="事件测试" value="error default-icon" @change="inputChange"></c-input>
 		</div>
 	</div>
 	<script type="text/javascript" src="./src/app.js"></script>
