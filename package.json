@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx parcel build test/* --no-cache --no-minify && karma start --single-run",
+    "dev-test": "npx parcel watch test/* --no-cache & karma start",
     "build": "npx parcel index.html",
     "start": "npx parcel index.html --no-cache"
   },
