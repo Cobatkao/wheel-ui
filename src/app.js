@@ -4,6 +4,8 @@ import Button from './button';
 import Icon from './icon';
 import buttonGroup from './buttonGroup';
 import Input from './input'
+import Row from './row'
+import col from './col'
 
 import chai from 'chai';
 import spies from 'chai-spies';
@@ -14,6 +16,8 @@ Vue.component('c-button', Button);
 Vue.component('c-icon', Icon);
 Vue.component('c-button-group', buttonGroup);
 Vue.component('c-input', Input);
+Vue.component('c-row', Row);
+Vue.component('c-col', col);
 
 new Vue({
 	el: "#app",
