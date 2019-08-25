@@ -11,7 +11,7 @@ describe('Input', () => {
   })
 
   // 分组1：测试props
-  describe('测试 props 接收参数', () => {
+  describe('接收 props', () => {
     const Constructor = Vue.extend(Input)
     let vm
     afterEach(() => {
@@ -51,66 +51,37 @@ describe('Input', () => {
     it('接收 error', () => {
       vm = new Constructor({
         propsData: {
-          error: '出错了'
+          error: '出错了',
+          icon: 'error'
         }
       }).$mount()
       const useElement = vm.$el.querySelector('use')
       expect(useElement.getAttribute('xlink:href')).to.equal('#icon-error')
-      const errorMsg = vm.$el.querySelector('error-msg')
+      const errorMsg = vm.$el.querySelector('.error-msg')
       expect(errorMsg.innerText).to.equal('出错了')
     })
   })
 
-  describe('测试 event 事件', () => {
+  // 分组2：测试事件
+  describe('测试事件', () => {
     const Constructor = Vue.extend(Input)
     let vm
     afterEach(() => {
       vm.$destroy()
     })
 
-    it('测试 change 事件', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('change', callback) // 触发change时执行callback
-      let event = new Event('change') // 开始手动触发input change事件
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event) // 期待回调会被调用且传递的第一个参数是event
+    it('支持input/change/focus/blur事件', () => {
+      ['change', 'input', 'focus', 'blur'].forEach((eventName) => {
+        vm = new Constructor({}).$mount()
+        const callback = sinon.fake()
+        vm.$on(eventName, callback) // 触发change时执行callback
+        let event = new Event(eventName) // 开始手动触发input change事件
+        Object.defineProperty(event, 'target', {value: {value: 'hi'}, enumerable: true})
+        let inputElement = vm.$el.querySelector('input')
+        inputElement.dispatchEvent(event)
+        expect(callback).to.have.been.calledWith('hi') // 期待回调会被调用且传递的event.target.value
+      })
     })
 
-    it('测试 input 事件', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('input', callback)
-      // 手动触发input change事件
-      let event = new Event('input')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event) // 期待回调会被调用且传递的第一个参数是event
-    })
-
-    it('测试 focus 事件', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('focus', callback)
-      // 手动触发input change事件
-      let event = new Event('focus')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event) // 期待回调会被调用且传递的第一个参数是event
-    })
-
-    it('测试 blur 事件', () => {
-      vm = new Constructor({}).$mount()
-      const callback = sinon.fake()
-      vm.$on('blur', callback)
-      // 手动触发input change事件
-      let event = new Event('blur')
-      let inputElement = vm.$el.querySelector('input')
-      inputElement.dispatchEvent(event)
-      expect(callback).to.have.been.calledWith(event) // 期待回调会被调用且传递的第一个参数是event
-    })
   })
-
-
 })

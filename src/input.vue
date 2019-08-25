@@ -5,10 +5,10 @@
 			:disabled="disabled"
 			:readonly="readonly"
 			:value="value"
-			@change="$emit('change', $event)"
-			@focus="$emit('focus', $event)"
-			@input="$emit('input', $event)"
-			@blur="$emit('blur', $event)"
+			@input="$emit('input', $event.target.value)"
+			@change="$emit('change', $event.target.value)"
+			@focus="$emit('focus', $event.target.value)"
+			@blur="$emit('blur', $event.target.value)"
 		/>
 		<template v-if="error">
 			<c-icon class="icon-error" :name="icon"></c-icon>
@@ -18,6 +18,11 @@
 </template>
 
 <script>
+	/**
+	 * 默认icon：setting
+	 * 错误信息时需要传icon: 'error'
+ 	 */
+
 import Icon from './icon'
 
 export default {

@@ -46,8 +46,10 @@
 			<c-input :readonly="true" value="readonly"></c-input>
 			<c-input :disabled="true" value="disabled"></c-input>
 			<c-input error="姓名不能少于两个字哦" icon="error" value="error error-icon"></c-input>
-			<c-input error="姓名不能少于两个字哦" value="error default-icon"></c-input>
+			<c-input error="姓名不能多余五个字哦" value="error default-icon"></c-input>
 			<c-input error="事件测试" value="error default-icon" @change="inputChange"></c-input>
+			<c-input v-model="msg"></c-input>
+			{{ msg }}
 		</div>
 	</div>
 	<script type="text/javascript" src="./src/app.js"></script>

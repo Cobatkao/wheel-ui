@@ -18,12 +18,13 @@ Vue.component('c-input', Input);
 new Vue({
 	el: "#app",
   data: {
-	  isLoading: false
+	  isLoading: false,
+    msg: '模拟v-model双向绑定'
   },
   methods: {
 	  inputChange(e) {
 	    console.log(e.target.value)
-    }
+    },
   }
 });
 
