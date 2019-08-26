@@ -1,12 +1,10 @@
 <template>
 	<div
 		class="col"
-		:class="[span && `${span} col-${span}`, offset && `offset-${offset}`]"
-		:style="{ paddingLeft: `${gutter / 2}px`, paddingRight: `${gutter / 2}px` }"
+		:class="colClass"
+		:style="colStyle"
 	>
-		<div style="height: 100px;">
-			<slot></slot>
-		</div>
+		<slot></slot>
 	</div>
 </template>
 
@@ -25,6 +23,19 @@ export default {
 		return {
 			gutter: 0
 		};
+	},
+	computed: {
+		colClass() {
+			let { span, offset } = this
+			return [span && `col-${span}`, offset && `offset-${offset}`]
+		},
+		colStyle() {
+			let { gutter } = this
+			return {
+				['padding-left']: `${gutter / 2}px`,
+				['padding-right']: `${gutter / 2}px`
+			}
+		}
 	}
 };
 </script>

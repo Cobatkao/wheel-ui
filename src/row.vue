@@ -1,7 +1,8 @@
 <template>
 	<div
 		class="row"
-		:style="{ marginLeft: `-${gutter / 2}px`, marginRight: `-${gutter / 2}px` }"
+		:style="rowStyle"
+		:class="rowClass"
 	>
 		<slot></slot>
 	</div>
@@ -13,10 +14,32 @@ export default {
 	props: {
 		gutter: {
 			type: [Number, String]
+		},
+		align: {
+			type: String,
+			validator: (value) => {
+				return ['left', 'center', 'right'].includes(value)
+			}
 		}
 	},
 	data() {
 		return {};
+	},
+	computed: {
+		rowStyle() {
+			let { gutter } = this
+			if (gutter) {
+				return {
+					['margin-left']: `-${gutter / 2}px`,
+					['margin-right']: `-${gutter / 2}px`
+				}
+			}
+			return
+		},
+		rowClass() {
+			let { align } = this
+			return [align && `align-${align}`]
+		}
 	},
 	mounted() {
 		this.$children.forEach(vm => {
@@ -29,10 +52,6 @@ export default {
 <style scoped lang="scss">
 .row {
 	display: flex;
-	/*background-color: #F6F6F6;*/
-	/*background-clip: padding-box;*/
-	/*padding-top: 10px;*/
-	/*padding-bottom: 10px;*/
 
 	> div:nth-child(odd) {
 		background-color: #d6e4aa;
@@ -42,6 +61,18 @@ export default {
 	> div:nth-child(even) {
 		background-color: #83b582;
 		background-clip: content-box;
+	}
+
+	&.align-left {
+		justify-content: flex-start;
+	}
+
+	&.align-center {
+		justify-content: center;
+	}
+
+	&.align-right {
+		justify-content: flex-end;
 	}
 }
 </style>
