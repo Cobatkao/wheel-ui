@@ -67,6 +67,7 @@
 			</div>
 
 			<div class="box">
+				<h3>基本使用</h3>
 				<c-row :gutter="10">
 					<c-col :span="12"></c-col>
 					<c-col :span="12"></c-col>
@@ -76,6 +77,7 @@
 					<c-col :span="8"></c-col>
 					<c-col :span="8"></c-col>
 				</c-row>
+				<h3>间隔</h3>
 				<c-row :gutter="10">
 					<c-col :span="6"></c-col>
 					<c-col :span="8" :offset="2"></c-col>
@@ -87,6 +89,7 @@
 					<c-col :span="5" :offset="2"></c-col>
 					<c-col :span="2" :offset="3"></c-col>
 				</c-row>
+				<h3>左中右偏移</h3>
 				<c-row align="right">
 					<c-col :span="4"></c-col>
 					<c-col :span="4"></c-col>
@@ -101,6 +104,31 @@
 					<c-col :span="4"></c-col>
 					<c-col :span="4"></c-col>
 					<c-col :span="4"></c-col>
+				</c-row>
+				<h3>预设五个响应尺寸：xs sm md lg xl</h3>
+				<c-row :gutter="20">
+					<c-col :xs="{span:24}" :sm="{span:8}" :md="{span:6}" :lg="{span:4}" :xl="{span:1}">Responsive 1</c-col>
+					<c-col :xs="{span:24}" :sm="{span:16}" :md="{span:18}" :lg="{span:20}" :xl="{span:23}">Responsive 2</c-col>
+				</c-row>
+				<c-row>
+					<c-col :lg="{span:8}" :md="{span:6}" :sm="{span:4}" :xs="{span:24}">
+						<div style="height: 100px; background: #666; border: 1px solid green;"></div>
+					</c-col>
+					<c-col :lg="{span:8}" :md="{span:6}" :sm="{span:4}" :xs="{span:24}">
+						<div style="height: 100px; background: #666; border: 1px solid green;"></div>
+					</c-col>
+					<c-col :lg="{span:8}" :md="{span:6}" :sm="{span:4}" :xs="{span:24}">
+						<div style="height: 100px; background: #666; border: 1px solid green;"></div>
+					</c-col>
+					<c-col :lg="{span:8}" :md="{span:6}" :sm="{span:4}" :xs="{span:24}">
+						<div style="height: 100px; background: #666; border: 1px solid green;"></div>
+					</c-col>
+					<c-col :lg="{span:8}" :md="{span:6}" :sm="{span:4}" :xs="{span:24}">
+						<div style="height: 100px; background: #666; border: 1px solid green;"></div>
+					</c-col>
+					<c-col :lg="{span:8}" :md="{span:6}" :sm="{span:4}" :xs="{span:24}">
+						<div style="height: 100px; background: #666; border: 1px solid green;"></div>
+					</c-col>
 				</c-row>
 			</div>
 		</div>

@@ -52,6 +52,7 @@ export default {
 <style scoped lang="scss">
 .row {
 	display: flex;
+	flex-wrap: wrap;
 
 	> div:nth-child(odd) {
 		background-color: #d6e4aa;
