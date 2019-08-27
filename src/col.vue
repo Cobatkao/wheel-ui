@@ -56,7 +56,7 @@ export default {
 	},
 	methods: {
 	  createClass(obj = '', type = '') {
-			if (!obj) return ''
+			if (!obj && !type) return
 			let arr = []
 			if (obj.span) {
 			  arr.push(`col-${type}-${obj.span}`)
@@ -73,8 +73,7 @@ export default {
 			let createClasses = this.createClass
 			return [
 			    span && `col-${span}`,
-					offset && `col-${offset}`,
-					...createClasses({span, offset}, ''),
+					offset && `offset-${offset}`,
 					...createClasses(xs, 'xs'),
 					...createClasses(sm, 'sm'),
 					...createClasses(md, 'md'),
