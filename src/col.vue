@@ -54,17 +54,32 @@ export default {
 			gutter: 0
 		};
 	},
+	methods: {
+	  createClass(obj = '', type = '') {
+			if (!obj) return ''
+			let arr = []
+			if (obj.span) {
+			  arr.push(`col-${type}-${obj.span}`)
+			}
+			if (obj.offset) {
+			  arr.push(`offset-${type}-${obj.offset}`)
+			}
+			return arr
+		}
+	},
 	computed: {
 		colClass() {
 			let { span, offset, xs, sm, md, lg, xl } = this
+			let createClasses = this.createClass
 			return [
-					span && `col-${span}`,
-					offset && `offset-${offset}`,
-					xs && `col-xs-${xs.span}`,
-					sm && `col-sm-${sm.span}`,
-					md && `col-md-${md.span}`,
-					lg && `col-lg-${lg.span}`,
-					xl && `col-xl-${xl.span}`,
+			    span && `col-${span}`,
+					offset && `col-${offset}`,
+					...createClasses({span, offset}, ''),
+					...createClasses(xs, 'xs'),
+					...createClasses(sm, 'sm'),
+					...createClasses(md, 'md'),
+					...createClasses(lg, 'lg'),
+					...createClasses(xl, 'xl'),
 			]
 		},
 		colStyle() {
@@ -98,7 +113,7 @@ export default {
 		}
 	}
 
-	
+
 	@media (min-width: 0) {
 		$class-prefix: col-xs-;
 		@for $n from 1 through 24 {
