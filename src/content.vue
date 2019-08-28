@@ -1,10 +1,12 @@
 <template>
-
+    <div class="content">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
   export default {
-    name: "content.vue",
+    name: "wheel-content",
     data() {
       return {}
     },
@@ -13,5 +15,7 @@
 </script>
 
 <style scoped lang="less">
-
+    .content {
+        flex-grow: 1;
+    }
 </style>

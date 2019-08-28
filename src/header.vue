@@ -1,10 +1,12 @@
 <template>
-
+    <div class="header">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
   export default {
-    name: "header.vue",
+    name: "wheel-header",
     data() {
       return {}
     },
@@ -13,5 +15,7 @@
 </script>
 
 <style scoped lang="less">
+    .header {
 
+    }
 </style>

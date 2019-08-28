@@ -1,17 +1,22 @@
 <template>
-
+    <div class="layout">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
   export default {
-    name: "layout.vue",
+    name: "wheel-layout",
     data() {
       return {}
     },
-    components: {}
   }
 </script>
 
 <style scoped lang="less">
-
+    .layout {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid red;
+    }
 </style>

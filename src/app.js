@@ -6,6 +6,11 @@ import buttonGroup from './buttonGroup';
 import Input from './input'
 import Row from './row'
 import col from './col'
+import Layout from './layout'
+import Footer from './footer'
+import Header from './header'
+import Content from './content'
+import Sider from './sider'
 
 import chai from 'chai';
 import spies from 'chai-spies';
@@ -18,6 +23,11 @@ Vue.component('c-button-group', buttonGroup);
 Vue.component('c-input', Input);
 Vue.component('c-row', Row);
 Vue.component('c-col', col);
+Vue.component('c-footer', Footer);
+Vue.component('c-header', Header);
+Vue.component('c-layout', Layout);
+Vue.component('c-content', Content);
+Vue.component('c-sider', Sider);
 
 new Vue({
 	el: "#app",

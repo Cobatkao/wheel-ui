@@ -1,10 +1,12 @@
 <template>
-
+    <div class="sider">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
   export default {
-    name: "sider.vue",
+    name: "wheel-sider",
     data() {
       return {}
     },
@@ -13,5 +15,7 @@
 </script>
 
 <style scoped lang="less">
+    .sider {
 
+    }
 </style>
