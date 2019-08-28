@@ -22,10 +22,30 @@
 				padding: 0;
 			}
 
-			.demo {
-				border: 1px solid #333333;
+			.layout {
+				font-size: 24px;
+				color: #ffffff;
+			}
+
+			.content {
+				background-color: #b2d3be;
+			}
+
+			.sider {
+				background-color: #5e6073;
+				min-width: 200px;
+			}
+
+			.footer {
+				background-color: #F2F4D1;
+				min-height: 50px;
+			}
+
+			.header {
+				background-color: #F2F4D1;
 				min-height: 100px;
 			}
+
 		</style>
 	</head>
 
@@ -151,12 +171,12 @@
 
 			<h3>带sider左右布局</h3>
 			<c-layout style="height: 100vh;">
-				<c-header class="demo">Header</c-header>
+				<c-sider>Sider</c-sider>
 				<c-layout>
-					<c-sider class="demo">Sider</c-sider>
-					<c-content class="demo">Content</c-content>
+					<c-header>Header</c-header>
+					<c-content>Content</c-content>
+					<c-footer>Footer</c-footer>
 				</c-layout>
-				<c-footer class="demo">Footer</c-footer>
 			</c-layout>
 		</div>
 		<script type="text/javascript" src="./src/app.js"></script>

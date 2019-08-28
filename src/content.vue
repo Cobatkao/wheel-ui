@@ -16,6 +16,6 @@
 
 <style scoped lang="less">
     .content {
-        flex-grow: 1;
+			flex-grow: 1;
     }
 </style>

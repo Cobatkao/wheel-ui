@@ -15,7 +15,5 @@
 </script>
 
 <style scoped lang="less">
-    .header {
 
-    }
 </style>
