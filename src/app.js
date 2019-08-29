@@ -11,6 +11,10 @@ import Footer from './footer'
 import Header from './header'
 import Content from './content'
 import Sider from './sider'
+import Toast from './toast'
+import Plugin from './plugin'
+
+Vue.use(Plugin)
 
 import chai from 'chai';
 import spies from 'chai-spies';
@@ -28,6 +32,7 @@ Vue.component('c-header', Header);
 Vue.component('c-layout', Layout);
 Vue.component('c-content', Content);
 Vue.component('c-sider', Sider);
+Vue.component('c-toast', Toast);
 
 new Vue({
 	el: "#app",
@@ -39,6 +44,9 @@ new Vue({
 	  inputChange(e) {
 	    console.log(e.target.value)
     },
+    showToast() {
+	    this.$toast('我是吐司组件')
+    }
   }
 });
 
