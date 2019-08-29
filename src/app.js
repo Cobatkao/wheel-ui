@@ -44,8 +44,37 @@ new Vue({
 	  inputChange(e) {
 	    console.log(e.target.value)
     },
-    showToast() {
-	    this.$toast('我是吐司组件')
+    // Toast组件使用方法
+    showToast0() {
+      this.$toast({
+        message: '这是一个吐司', // Toast文本
+        closeText: '明白', // 关闭按钮文本
+        callback () { // 关闭时回调
+          console.log('您的🍞关闭了')
+        }
+      })
+    },
+    showToast1() {
+	    this.$toast({
+        message: '这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司', // Toast文本
+        closeText: '明白', // 关闭按钮文本
+        callback () { // 关闭时回调
+          console.log('您的🍞关闭了')
+        }
+      })
+    },
+    showToast2() {
+      this.$toast()
+    },
+    showToast3() {
+      this.$toast({
+        message: '<i><a href="www.baidu.com">接收HTML</a></i>', // Toast文本
+        closeText: '喔森', // 关闭按钮文本
+        enableHTML: true,
+        callback () { // 关闭时回调
+          console.log('您的🍞关闭了')
+        }
+      })
     }
   }
 });
