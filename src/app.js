@@ -55,7 +55,7 @@ new Vue({
         },
         autoClose: true, // 开启自动关闭
         autoCloseDelay: 1, // 自动关闭时间
-        position: 'middle'
+        position: 'bottom'
       })
     },
     showToast1() {
@@ -81,7 +81,22 @@ new Vue({
         },
         enableHTML: true,
       })
-    }
+    },
+    showToast01() {
+      this.$toast('top',{
+        position: 'top'
+      })
+    },
+    showToast02() {
+      this.$toast('middle',{
+        position: 'middle'
+      })
+    },
+    showToast03() {
+      this.$toast('bottom',{
+        position: 'bottom'
+      })
+    },
   }
 });
 
