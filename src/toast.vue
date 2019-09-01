@@ -15,13 +15,12 @@
   export default {
     name: 'wheel-toast',
     props: {
-      autoClose: { // 开启自动关闭
-        type: Boolean,
-        default: true
-      },
-      autoCloseDelay: { // 自定义自动关闭时间，默认3000ms
-        type: Number,
-        default: 3
+      autoClose: { // 接收数字表示delay时间、或false表示关掉自动关闭
+        type: [Boolean, Number],
+        default: 3,
+        validator (value) {
+          return value === false || typeof value === 'number'
+        }
       },
       closeButton: {
         type: Object,
@@ -62,7 +61,7 @@
       execAutoClose() {
         this.autoClose && setTimeout(() => {
           this.close()
-        }, this.autoCloseDelay * 1000)
+        }, this.autoClose * 1000)
       },
       close() { // 移除并销毁组件（解绑事件等等 ）
         this.$el.remove()

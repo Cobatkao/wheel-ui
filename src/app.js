@@ -53,8 +53,7 @@ new Vue({
             console.log('您的🍞关闭了')
           },
         },
-        autoClose: true, // 开启自动关闭
-        autoCloseDelay: 1, // 自动关闭时间
+        autoClose: 1, // 开启自动关闭
         position: 'bottom'
       })
     },
