@@ -37,7 +37,7 @@
         type: String,
         default: 'middle',
         validator(val) {
-          return ['top', 'left', 'right', 'middle', 'bottom'].indexOf(val) !== -1
+          return ['top', 'middle', 'bottom'].indexOf(val) !== -1
         }
       }
     },
@@ -78,6 +78,17 @@
 <style scoped lang="scss">
 
     @import '../common.scss';
+    
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translate(-50%, 100%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
 
     .toast {
         display: inline-flex;
@@ -91,6 +102,7 @@
         background: $toast-bgColor;
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
         border-radius: 3px;
+        animation: fade-in 1s;
 
         &.position-top {
             transform: translateX(-50%);
@@ -102,18 +114,6 @@
             transform: translate(-50%, -50%);
             top: 50%;
             left: 50%;
-        }
-
-        &.position-left {
-            transform: translateY(-50%);
-            top: 50%;
-            left: 10px;
-        }
-
-        &.position-right {
-            transform: translateY(-50%);
-            top: 50%;
-            right: 10px;
         }
 
         &.position-bottom {
