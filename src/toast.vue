@@ -63,6 +63,7 @@
       },
       close() { // 移除并销毁组件（解绑事件等等 ）
         this.$el.remove()
+        this.$emit('beforeclose')
         this.$destroy()
       },
       tapClose() {
