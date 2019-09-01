@@ -49,9 +49,12 @@ new Vue({
       this.$toast({
         message: '这是一个吐司', // Toast文本
         closeText: '明白', // 关闭按钮文本
+        autoClose: true, // 开启自动关闭
+        autoCloseDelay: 1, // 自动关闭时间
         callback () { // 关闭时回调
           console.log('您的🍞关闭了')
-        }
+        },
+        position: 'middle'
       })
     },
     showToast1() {

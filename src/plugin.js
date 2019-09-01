@@ -6,7 +6,10 @@ export default {
       const Constructor = Vue.extend(Toast)
       const toast = new Constructor({
         propsData: { // 数据传入toast组件props内
-          closeButton: toastOptions
+          closeButton: toastOptions,
+          autoCloseDelay: toastOptions.autoCloseDelay,
+          autoClose: toastOptions.autoClose,
+          position: toastOptions.position
         }
       })
       toast.$slots.default = toastOptions && toastOptions.message ? toastOptions.message : 'Custom Close Button' // 传递默认插槽内容

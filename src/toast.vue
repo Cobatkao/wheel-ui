@@ -1,5 +1,5 @@
 <template>
-    <div class="toast" ref="toast">
+    <div class="toast" ref="toast" :class="toastPositionClasses">
         <div class="message">
             <slot v-if="!closeButton.enableHTML"></slot>
             <div v-else v-html="$slots.default"></div>
@@ -19,7 +19,9 @@
       },
       autoCloseDelay: { // 自定义自动关闭时间，默认3000ms
         type: Number,
-        default: 3
+        default() {
+          return 3
+        }
       },
       closeButton: {
         type: Object,
@@ -31,6 +33,18 @@
           }
         }
       },
+      position: {
+        type: String,
+        default: 'middle',
+        validator(val) {
+          return ['top', 'left', 'right', 'middle', 'bottom'].indexOf(val) !== -1
+        }
+      }
+    },
+    computed: {
+      toastPositionClasses() {
+        return [`position-${this.position}`]
+      }
     },
     mounted() {
       this.updateLineStyle()
@@ -69,9 +83,6 @@
         display: inline-flex;
         align-items: center;
         position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
         min-height: $toast-height;
         font-size: $toast-fontSize;
         line-height: 1.8;
@@ -81,7 +92,38 @@
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
         border-radius: 3px;
 
+        &.position-top {
+            transform: translateX(-50%);
+            top: 10px;
+            left: 50%;
+        }
+
+        &.position-middle {
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        &.position-left {
+            transform: translateY(-50%);
+            top: 50%;
+            left: 10px;
+        }
+
+        &.position-right {
+            transform: translateY(-50%);
+            top: 50%;
+            right: 10px;
+        }
+
+        &.position-bottom {
+            transform: translateY(-50%);
+            left: 50%;
+            bottom: 10px;
+        }
+
         .message {
+            max-width: 420px; /*默认最大宽度*/
             padding: 8px 0;
         }
 
