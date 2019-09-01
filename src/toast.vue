@@ -1,7 +1,7 @@
 <template>
     <div class="toast" ref="toast" :class="toastPositionClasses">
         <div class="message">
-            <slot v-if="!closeButton.enableHTML"></slot>
+            <slot v-if="!enableHTML"></slot>
             <div v-else v-html="$slots.default"></div>
         </div>
         <span class="close_line" ref="closeLine"></span>
@@ -19,19 +19,20 @@
       },
       autoCloseDelay: { // 自定义自动关闭时间，默认3000ms
         type: Number,
-        default() {
-          return 3
-        }
+        default: 3
       },
       closeButton: {
         type: Object,
         default() {
           return {
             closeText: 'Close Me',
-            enableHTML: false,
             callback: undefined
           }
         }
+      },
+      enableHTML: {
+        type: Boolean,
+        default: false
       },
       position: {
         type: String,

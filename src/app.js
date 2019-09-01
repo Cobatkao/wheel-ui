@@ -46,23 +46,25 @@ new Vue({
     },
     // Toast组件使用方法
     showToast0() {
-      this.$toast({
-        message: '这是一个吐司', // Toast文本
-        closeText: '明白', // 关闭按钮文本
+      this.$toast('这是一个吐司', {
+        closeButton: {
+          closeText: '明白', // 关闭按钮文本
+          callback () { // 关闭时回调
+            console.log('您的🍞关闭了')
+          },
+        },
         autoClose: true, // 开启自动关闭
         autoCloseDelay: 1, // 自动关闭时间
-        callback () { // 关闭时回调
-          console.log('您的🍞关闭了')
-        },
         position: 'middle'
       })
     },
     showToast1() {
-	    this.$toast({
-        message: '这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司', // Toast文本
-        closeText: '明白', // 关闭按钮文本
-        callback () { // 关闭时回调
-          console.log('您的🍞关闭了')
+	    this.$toast('这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司这是一个吐司', {
+        closeButton: {
+          closeText: '明白', // 关闭按钮文本
+          callback () { // 关闭时回调
+            console.log('您的🍞关闭了')
+          }
         }
       })
     },
@@ -70,13 +72,14 @@ new Vue({
       this.$toast()
     },
     showToast3() {
-      this.$toast({
-        message: '<i><a href="www.baidu.com">接收HTML</a></i>', // Toast文本
-        closeText: '喔森', // 关闭按钮文本
+      this.$toast('<i><a href="www.baidu.com">接收HTML</a></i>', {
+        closeButton: {
+          closeText: '喔森', // 关闭按钮文本
+          callback () { // 关闭时回调
+            console.log('您的🍞关闭了')
+          }
+        },
         enableHTML: true,
-        callback () { // 关闭时回调
-          console.log('您的🍞关闭了')
-        }
       })
     }
   }
