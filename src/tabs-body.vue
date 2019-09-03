@@ -6,10 +6,11 @@
 
 <script>
   export default {
-    name: 'wheel-tabsbody'
+    name: 'wheel-tabsbody',
+    inject: ['eventBus'],
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>
