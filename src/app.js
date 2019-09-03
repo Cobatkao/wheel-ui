@@ -14,6 +14,12 @@ import Sider from './sider'
 import Toast from './toast'
 import Plugin from './plugin'
 
+import Tabs from './tabs'
+import Tabhead from './tabs-head'
+import Tabbody from './tabs-body'
+import Tabpane from './tabs-pane'
+import Tabitem from './tabs-item'
+
 Vue.use(Plugin)
 
 import chai from 'chai';
@@ -34,11 +40,21 @@ Vue.component('c-content', Content);
 Vue.component('c-sider', Sider);
 Vue.component('c-toast', Toast);
 
+Vue.component('c-tabs', Tabs);
+Vue.component('c-tabs-head', Tabhead);
+Vue.component('c-tabs-item', Tabitem);
+Vue.component('c-tabs-pane', Tabpane);
+Vue.component('c-tabs-body', Tabbody);
+
+
+
 new Vue({
 	el: "#app",
   data: {
-	  isLoading: false,
-    msg: '模拟v-model双向绑定'
+	  // isLoading: false,
+    // msg: '模拟v-model双向绑定',
+    selectedTab: 'supper',
+    tabDirection: 'horizontal'
   },
   methods: {
 	  inputChange(e) {

@@ -177,16 +177,45 @@
 <!--					<c-footer>Footer</c-footer>-->
 <!--				</c-layout>-->
 <!--			</c-layout>-->
-			<button @click="showToast0">单行传递配置吐司</button>
-			<button @click="showToast1">多行传递配置吐司</button>
-			<button @click="showToast2">无配置吐司</button>
-			<button @click="showToast3">接收HTML吐司</button>
-			<br>
-			<button @click="showToast01">TOP</button>
-			<button @click="showToast02">MIDDLE</button>
-			<button @click="showToast03">BOTTOM</button>
-			<br>
-			<button @click="showToast04">服务器情况</button>
+<!--			<button @click="showToast0">单行传递配置吐司</button>-->
+<!--			<button @click="showToast1">多行传递配置吐司</button>-->
+<!--			<button @click="showToast2">无配置吐司</button>-->
+<!--			<button @click="showToast3">接收HTML吐司</button>-->
+<!--			<br>-->
+<!--			<button @click="showToast01">TOP</button>-->
+<!--			<button @click="showToast02">MIDDLE</button>-->
+<!--			<button @click="showToast03">BOTTOM</button>-->
+<!--			<br>-->
+<!--			<button @click="showToast04">服务器情况</button>-->
+			<c-tabs :selected.sync="selectedTab" :direction="tabDirection">
+				<c-tabs-head>
+					<template slot="extra_button">
+						<button>按钮</button>
+					</template>
+					<c-tabs-item name="breakfast">
+						<c-icon name="heart"></c-icon>
+						<span tabs-item-name>早餐</span>
+					</c-tabs-item>
+					<c-tabs-item name="lunch">
+						<c-icon name="heart"></c-icon>
+						<span tabs-item-name>午餐</span>
+					</c-tabs-item>
+					<c-tabs-item name="supper">
+						<c-icon name="heart"></c-icon>
+						<span tabs-item-name>晚餐</span>
+					</c-tabs-item>
+					<c-tabs-item name="nightfood">
+						<c-icon name="heart"></c-icon>
+						<span tabs-item-name>夜宵</span>
+					</c-tabs-item>
+				</c-tabs-head>
+				<c-tabs-body>
+					<c-tabs-pane name="breakfast">面线糊、鸭肉粥、油条</c-tabs-pane>
+					<c-tabs-pane name="lunch">沙茶面、肉粽、五香条</c-tabs-pane>
+					<c-tabs-pane name="supper">炒面线、煎蟹、姜母鸭</c-tabs-pane>
+					<c-tabs-pane name="nightfood">酸笋面、四果汤、拌面、扁食</c-tabs-pane>
+				</c-tabs-body>
+			</c-tabs>
 		</div>
 		<script type="text/javascript" src="./src/app.js"></script>
 		<script
