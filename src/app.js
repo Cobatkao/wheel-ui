@@ -82,20 +82,28 @@ new Vue({
       })
     },
     showToast01() {
-      this.$toast('top',{
-        position: 'top'
+      this.$toast('top top',{
+        position: 'top',
+        closeButton: {
+          closeText: '喔森', // 关闭按钮文本
+        },
       })
     },
     showToast02() {
-      this.$toast('middle',{
+      this.$toast('middle middle',{
         position: 'middle'
       })
     },
     showToast03() {
-      this.$toast('bottom',{
+      this.$toast('bottom bottom',{
         position: 'bottom'
       })
     },
+    showToast04() {
+	    this.$toast('服务器错误，请稍后重试', {
+	      position: 'top'
+      })
+    }
   }
 });
 

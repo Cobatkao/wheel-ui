@@ -20,6 +20,7 @@ describe('Toast', () => {
       const vm = new Constructor({
         propsData: {
           autoClose: 0.5,
+          closeButton: {}
         }
       }).$mount(div)
       vm.$on('beforeclose', () => {
@@ -28,7 +29,7 @@ describe('Toast', () => {
       })
     })
 
-    it('接收 closeButton', function () {
+    it('接收 closeButton', function (done) {
       const callback = sinon.fake()
       const Constructor = Vue.extend(Toast)
       const vm = new Constructor({
@@ -45,20 +46,24 @@ describe('Toast', () => {
       let span = vm.$el.querySelector('.close_text')
       expect(span.textContent.trim()).to.be.equal('关闭吧')
       // 测试回调函数是否被调用
-      span.click()
-      expect(callback).to.have.been.called
+      setTimeout(() => {
+        span.click()
+        expect(callback).to.have.been.called
+        done()
+      }, 200)
     })
 
     it('接收 enableHTML', () => {
       const Constructor = Vue.extend(Toast)
       const vm = new Constructor({
         propsData: {
-          enableHTML: true
+          enableHTML: true,
+          closeButton: {}
         }
       })
       vm.$slots.default = ['<h1 id=test>Hello World</h1>']
       vm.$mount()
-      console.log(vm.$el.outerHTML)
+      // console.log(vm.$el.outerHTML)
       let h1Tag = vm.$el.querySelector('#test')
       expect(h1Tag).to.exist
     })
@@ -67,11 +72,12 @@ describe('Toast', () => {
       const Constructor = Vue.extend(Toast)
       const vm = new Constructor({
         propsData: {
-          position: 'bottom'
+          position: 'bottom',
+          closeButton: {}
         }
       }).$mount()
       document.body.appendChild(vm.$el)
-      console.log(vm.$el.outerHTML)
+      // console.log(vm.$el.outerHTML)
       expect(vm.$el.classList.contains('position-bottom')).to.be.ok
     })
   })

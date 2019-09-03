@@ -5,8 +5,10 @@
                 <slot v-if="!enableHTML"></slot>
                 <div v-else v-html="$slots.default"></div>
             </div>
-            <span class="close_line" ref="closeLine"></span>
-            <span class="close_text" v-if="closeButton.closeText" @click="tapClose">{{ closeButton.closeText }}</span>
+            <template v-if="closeButton">
+                <span class="close_line" ref="close"></span>
+                <span class="close_text" v-if="closeButton.closeText" @click="tapClose">{{ closeButton.closeText }}</span>
+            </template>
         </div>
     </div>
 </template>
@@ -24,12 +26,12 @@
       },
       closeButton: {
         type: Object,
-        default() {
-          return {
-            closeText: 'Close Me',
-            callback: undefined
-          }
-        }
+        // default() {
+        //   return {
+        //     closeText: 'Close Me',
+        //     callback: undefined
+        //   }
+        // }
       },
       enableHTML: {
         type: Boolean,
@@ -55,7 +57,7 @@
     methods: {
       updateLineStyle() {
         this.$nextTick(() => {
-          this.$refs['closeLine'].style.height = this.$refs['toast'].getBoundingClientRect().height
+          this.$refs.close.style.height = this.$refs.toast.getBoundingClientRect().height
         })
       },
       execAutoClose() {
