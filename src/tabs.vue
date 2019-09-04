@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs">
+    <div class="co-tabs">
         <slot></slot>
     </div>
 </template>
@@ -38,5 +38,7 @@
 </script>
 
 <style scoped lang="scss">
+    .co-tabs {
 
+    }
 </style>

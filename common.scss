@@ -31,4 +31,12 @@ $toast-fontSize: 14px;
 $toast-bgColor: rgba(0,0,0,0.75);
 $toast-animation: 500ms;
 
-$tab-height: 40px;
+$tab-height: 44px;
+
+
+/*mixins*/
+@mixin co-ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

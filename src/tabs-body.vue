@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-body">
+    <div class="co-tabs__body">
         <slot></slot>
     </div>
 </template>
@@ -12,5 +12,8 @@
 </script>
 
 <style scoped lang="scss">
-
+    .co-tabs__body {
+        padding: 25px 20px;
+        background-color: #f8f8f8;
+    }
 </style>

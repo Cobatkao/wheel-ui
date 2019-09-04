@@ -1,16 +1,15 @@
 <template>
-    <div class="tabs-pane" :style="{display: inactive}" :class="{active: isActive}">
+    <div class="co-tabs__pane" :class="{'co-pane--active': isActive}">
         <slot></slot>
     </div>
 </template>
 
-<script>
+    <script>
   export default {
     name: 'wheel-tabspane',
     data() {
       return {
-        isActive: false,
-        inactive: 'none'
+        isActive: false
       }
     },
     props: {
@@ -22,21 +21,18 @@
     inject: ['eventBus'],
     created () {
       this.eventBus.$on('update:selected', (name) => {
-        if (name === this.name) {
-          this.isActive = true
-        } else {
-          this.isActive = false
-        }
+        this.isActive = name === this.name;
       })
     },
   }
 </script>
 
 <style scoped lang="scss">
-    .tabs-pane {
+    .co-tabs__pane {
+        display: none;
 
-        &.active {
-            display: block !important;
+        &.co-pane--active {
+            display: block;
         }
     }
 </style>

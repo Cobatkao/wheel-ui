@@ -1,5 +1,5 @@
 <template>
-    <div class="tabs-item" @click.prevent="xxx" :class="{active: isActive}">
+    <div class="co-tabs__item" @click.prevent="xxx" :class="{'co-tab--active': isActive}">
         <slot></slot>
     </div>
 </template>
@@ -25,11 +25,7 @@
     inject: ['eventBus'],
     created() {
       this.eventBus.$on('update:selected', (name) => {
-        if (name === this.name) {
-          this.isActive = true
-        } else {
-          this.isActive = false
-        }
+        this.isActive = name === this.name;
       })
     },
     methods: {
@@ -41,13 +37,16 @@
 </script>
 
 <style scoped lang="scss">
-    .tabs-item {
+    .co-tabs__item {
         /*flex-grow: 1;*/
         flex-shrink: 0;
         padding: 0 1em;
+        color: #7d7e80;
+        cursor: pointer;
+        font-size: 14px;
 
-        &.active {
-            background: #83b582;
+        &.co-tab--active {
+            color: #323233;
         }
     }
 </style>
