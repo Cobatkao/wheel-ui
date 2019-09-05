@@ -30,9 +30,11 @@
 <style scoped lang="scss">
     .co-tabs__pane {
         display: none;
+        padding: 25px 20px;
 
         &.co-pane--active {
             display: block;
+            background: #ffffff;
         }
     }
 </style>

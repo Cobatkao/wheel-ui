@@ -13,7 +13,6 @@
 
 <style scoped lang="scss">
     .co-tabs__body {
-        padding: 25px 20px;
         background-color: #f8f8f8;
     }
 </style>

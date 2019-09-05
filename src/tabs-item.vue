@@ -24,13 +24,13 @@
     },
     inject: ['eventBus'],
     created() {
-      this.eventBus.$on('update:selected', (name) => {
+      this.eventBus.$on('update:selected', (name, vm) => {
         this.isActive = name === this.name;
       })
     },
     methods: {
       xxx() {
-        this.eventBus.$emit('update:selected', this.name)
+        this.eventBus.$emit('update:selected', this.name, this)
       }
     }
   }
@@ -44,9 +44,18 @@
         color: #7d7e80;
         cursor: pointer;
         font-size: 14px;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+
+        > .c-icon {
+            margin-right: 3px;
+        }
 
         &.co-tab--active {
-            color: #323233;
+            color: rgb(145, 184, 89);
+            background: #ffffff;
+            font-weight: bold;
         }
     }
 </style>
