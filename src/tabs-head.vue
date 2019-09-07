@@ -1,7 +1,7 @@
 <template>
     <div class="co-tabs__head co-tab__horizontal-line">
         <slot></slot>
-        <div class="co-tabs__line"></div>
+        <div class="co-tabs__line" ref="co-tabs__line"></div>
         <div class="extra_button_wrapper">
             <slot name="extra_button"></slot>
         </div>
@@ -12,11 +12,14 @@
   export default {
     name: 'wheel-tabshead',
     inject: ['eventBus'],
-    created() {
+    mounted() {
       // 监听tab-item的选中事件
       this.eventBus.$on('update:selected', (name, vm) => {
-        console.log(name)
-        console.log(vm)
+        console.log(vm.$el)
+        let {width, height, top, left} = vm.$el.getBoundingClientRect()
+        console.log(width, left)
+        this.$refs['co-tabs__line'].style.width = `${width}px`
+        this.$refs['co-tabs__line'].style.transform = `translateX(${left}px)`
       })
     }
   }
@@ -37,11 +40,11 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            background-color: rgb(145, 184, 89);
+            background-color: $themeColor;
             height: 3px;
             border-radius: 3px;
             z-index: 1;
-            width: 100px;
+            transition: all .3s;
         }
 
         &.co-tab__horizontal-line::after {
@@ -60,6 +63,10 @@
 
         > .extra_button_wrapper {
             margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 1em;
         }
     }
 </style>

@@ -1,11 +1,5 @@
 * {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box; // 使用本组件库需要使用border-box
-}
-
-#app {
-	margin: 20px;
 }
 
 body {
@@ -23,6 +17,8 @@ body {
 	--border-color: #999;
 	--border-color-hover: #666;
 }
+
+$themeColor: rgb(145, 184, 89);
 
 /*存放组件变量*/
 
