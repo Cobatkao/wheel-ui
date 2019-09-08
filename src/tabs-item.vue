@@ -1,5 +1,10 @@
 <template>
-    <div class="co-tabs__item" @click.prevent="xxx" :class="{'co-tab--active': isActive}">
+    <div
+            class="co-tabs__item"
+            @click.prevent="onClick"
+            :class="{'co-tab--active': isActive, 'co-tab--disabled': disabled}"
+            :data-name="name"
+    >
         <slot></slot>
     </div>
 </template>
@@ -13,6 +18,7 @@
       }
     },
     props: {
+      // 禁用item
       disabled: {
         type: Boolean,
         default: false
@@ -24,19 +30,24 @@
     },
     inject: ['eventBus'],
     created() {
-      this.eventBus.$on('update:selected', (name, vm) => {
-        this.isActive = name === this.name;
-      })
+      if (this.eventBus) {
+        this.eventBus.$on('update:selected', (name) => {
+          this.isActive = name === this.name;
+        })
+      }
     },
     methods: {
-      xxx() {
-        this.eventBus.$emit('update:selected', this.name, this)
+      onClick() {
+        if (this.disabled) {return}
+        this.eventBus && this.eventBus.$emit('update:selected', this.name, this)
       }
     }
-  }
+  }z
 </script>
 
 <style scoped lang="scss">
+    @import '../common.scss';
+
     .co-tabs__item {
         /*flex-grow: 1;*/
         flex-shrink: 0;
@@ -56,6 +67,11 @@
             color: rgb(145, 184, 89);
             background: #ffffff;
             font-weight: bold;
+        }
+
+        &.co-tab--disabled {
+            cursor: not-allowed;
+            color: $disabledColor;
         }
     }
 </style>

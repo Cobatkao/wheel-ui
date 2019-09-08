@@ -31,6 +31,9 @@
       }
     },
     mounted() {
+      if (this.$children.length === 0) {
+        console && console.warn && console.warn('tabs的子组件应该包含tabs-head和tabs-body，但目前并无子组件')
+      }
       this.$children.forEach((vm) => {
         if (vm.$options.name === 'wheel-tabshead') {
           vm.$children.forEach((item) => {
